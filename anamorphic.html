@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='ClaireSubstyle.css' media='screen'>
+
+<head>
+   <h1>Anamorphics</h1>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+
+  function calc_transform() {
+  }
+
+  function manipulate_image(image, imageData, morphed_image) {
+    // Create canvas for new image
+    cylinder_radius = document.getElementById("radius").value*72;
+    var morphed_canvas = document.createElement('canvas');
+    morphed_canvas.height = image.height * 2 + cylinder_radius * 2;
+    var fy = morphed_canvas.height;
+    morphed_canvas.width = image.height * 2 + cylinder_radius * 2;
+    var fx = morphed_canvas.width
+    var morphed_context = morphed_canvas.getContext('2d');
+    var th_range = Math.PI;
+    var max_r = cylinder_radius + image.height;
+
+    //TODO: initialize morphed image to be the right size
+    var MorphedImageData = morphed_context.getImageData(0, 0, morphed_canvas.width, morphed_canvas.height);
+
+    var index_orig = 0;
+    for (var y=0; y<fy;++y) {
+      // make xc and yc so they're centered
+      yc = fy/2 - y;
+      for (var x=0;x<fx;++x) {
+        xc = fx/2 - x;
+        // figure out the index
+        index = (y*fx + x) * 4;
+        // calculate r
+        r = Math.sqrt(xc*xc + yc*yc);
+        // calculate theta
+        th = Math.atan2(1.*yc,(1.*xc));
+        // check if r and theta are within range
+        if ((th<th_range)&(th>0)) {
+          if ((r>cylinder_radius) & (r<(max_r))) {
+            // x_orig and y_orig are the indices you want for the original image
+            x_orig = Math.floor(th*image.width/th_range);
+            y_orig = Math.floor(r - cylinder_radius);
+            index_orig = ((imageData.height - y_orig)*image.width + (imageData.width - x_orig))*4;
+            MorphedImageData.data[index] = imageData.data[index_orig];
+            MorphedImageData.data[index + 1] = imageData.data[index_orig + 1];
+            MorphedImageData.data[index + 2] = imageData.data[index_orig + 2];
+            MorphedImageData.data[index + 3] = imageData.data[index_orig + 3];
+            // assign the appropriate pixels of the final image based on the original image, flipping up down and left right (mirror image)
+          }
+        }
+      }
+    }
+    morphed_context.putImageData(MorphedImageData, 0, 0);
+    // morphed_context.drawImage(morphed_image, 0, 0);
+    morphed_image.src = morphed_canvas.toDataURL();
+    document.body.appendChild(morphed_image);
+
+    // Canvas2Image.saveAsPNG(morphed_canvas);
+  }
+
+  function handleFileSelect(evt) {
+      var files = evt.target.files; // FileList object
+
+      // Loop through the FileList and render image files as thumbnails.
+      for (var i = 0, f; f = files[i]; i++) {
+
+        // Only process image files.
+        if (!f.type.match('image.*')) {
+          continue;
+        }
+
+        var reader = new FileReader();
+
+        // Closure to capture the file information.
+        reader.onload = (function(theFile) {
+          return function(e) {
+            // Render thumbnail.
+            // alert("WORKING")
+            var span = $("#ca");
+            // span.attr("src", e.target.result);
+            var image = new Image();
+            image.onload = function() {
+                // Create canvas for loaded image
+                var canvas = document.createElement('canvas');
+                canvas.width = image.width;
+                canvas.height = image.height;
+                document.body.appendChild(canvas);
+                var context = canvas.getContext('2d');
+                context.drawImage(image, 0, 0);
+                var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                // Now you can access pixel data from imageData.data.
+                // It's a one-dimensional array of RGBA values.
+                // Here's an example of how to get a pixel's color at (x,y)
+                var morphed_image = new Image();
+                morphed_image.onload = (function(morphed_image) {
+                  return manipulate_image(image, imageData, morphed_image);
+                })(morphed_image);
+
+                x = 3; y= 4;
+                var index = (y*imageData.width + x) * 4;
+                var red = imageData.data[index];
+                var green = imageData.data[index + 1];
+                var blue = imageData.data[index + 2];
+                var alpha = imageData.data[index + 3];
+            };
+            image.src = e.target.result;
+          };
+        })(f);
+        // Read in the image file as a data URL.
+        reader.readAsDataURL(f);
+      }
+    }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+  })
+
+
+</script>
+</head>
+<body>
+  <p>At one of the <a href=http://www.operacabal.com/hydeparksalons> Hyde
+Park Salons</a>, I saw Jonathan Marks' presentation on anamorphic
+art.  He had morphed images so that they only looked correct when
+reflected in a mirrored cylinder.  He morphed his images by hand.  I
+was interested in trying out some morphed images, but didn't have the
+patience or artistic skill to do it by hand, so I made a python script
+to do it for me.  I'm posting it in case anyone else wants to try it
+out.</p>
+<p>Set a cylinder radius (replace 'Set radius in inches' with a number, e.g. 2) pick an image, and the transform should automatically appear (you may need to scroll down).  Right-click on the image for the option to save it. Refresh the page to reset it.  My friend <a href=http://www.zenna.org/>Zenna</a> helped me make this javascript app, and here's my original python script <a href = anamorphic.py> anamorphic.py</a>. Let me know if you need help, or have suggestions (e l m at m i t dot e d u)</p>
+
+<p><input type="text" onClick="this.select()" id = "radius" name="input" value="Set radius in inches">
+<input type="file" id="files" name="files[]" value = "Choose file" multiple /></p>
+<p><img id = "ca"></img></p>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+ <h1>Anamorphics</h1>
+</head>
+<body>
+<p>At one of the <a href=http://www.operacabal.com/hydeparksalons> Hyde
+Park Salons</a>, I saw Jonathan Marks' presentation on anamorphic
+art.  He had morphed images so that they only looked correct when
+reflected in a mirrored cylinder.  He morphed his images by hand.  I
+was interested in trying out some morphed images, but didn't have the
+patience or artistic skill to do it by hand, so I made a python script
+to do it for me.  I'm posting it in case anyone else wants to try it
+out.</p>
+
+<p>Here's the file: <a href = anamorphic.py> anamorphic.py</a>.  To
+run it, after you download it, go to the command line, change your directory to the folder
+containing the file, and type "python anamorphic.py".  The gui should guide
+you through the steps to morph an image, and save the results. If you don't have python,
+<a href = http://www.enthought.com/products/epd.php> Enthought </a>
+has a easy-to-install distribution free to academics, and there are
+also lots of online tutorials on how to install python. The script
+only takes .png files, so please use some other software to convert
+your images to .pngs. Contact me (e l m at m i t dot e d u) if you're having trouble. 
+</p>
+
+
+</body> </html>

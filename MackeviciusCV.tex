@@ -1,0 +1,145 @@
+% to update this, sometimes the .pdf gets locked, so I need to delete the old version.  Then, if publications change, 
+% go to the terminal, cd to the correct folder, and run latex MackeviciusCV; bibtex MackeviciusCV, then two more latex ...s
+
+%% start of file `template_en.tex'.
+%% Copyright 2007 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper]{moderncv}
+\newcommand{\bulletpt}{$\vcenter{\hbox{\tiny$\bullet$}}$ } % smaller bullet points
+
+
+% moderncv themes
+%\moderncvtheme[red]{casual}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+\moderncvtheme[grey]{classic}                % idem
+
+% character encoding
+\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+
+
+\recomputelengths                             % required when changes are made to page layout lengths
+
+% personal data
+\firstname{Emily}
+\familyname{Mackevicius}
+\title{Curriculum Vitae}               % optional, remove the line if not wanted
+\address{77 Mass Ave, 46-5145}{Cambridge MA 02139}    % optional, remove the line if not wanted
+%\mobile{mobile (optional)}                    % optional, remove the line if not wanted
+\phone{617.460.3629}                      % optional, remove the line if not wanted
+%\fax{fax (optional)}                          % optional, remove the line if not wanted
+\email{\mbox{elm@mit.edu}}                      % optional, remove the line if not wanted
+%\extrainfo{additional information (optional)} % optional, remove the line if not wanted
+%\photo[64pt]{picture}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+
+
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+
+%---------------------------------------------------------------ma-------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+
+
+\section{Education}
+\cventry{2011--2018}{PhD, Brain and Cognitive Sciences}{Massachusetts Institute of Technology, Cambridge MA}{}{}{}{} %arguments 3 to 6 are optional
+\cventry{2012}{Methods in Computational Neuroscience}{Marine Biological Laboratory, Woods Hole, MA}{}{}{}
+\cventry{2007--2011}{BS, Mathematics}{University of Chicago, Chicago IL}{}{}{}{} %arguments 3 to 6 are optional
+\cventry{2003--2007}{High School}{Belmont High School, Belmont, MA}{}{}
+\ 
+\section{Employment}
+\cventry{2018-present}{Postdoctoral Associate}{}{MIT Department of Brain and Cognitive Sciences, Fee Lab}{}{}
+\cventry{2011-2018}{PhD Student}{}{MIT Department of Brain and Cognitive Sciences, Fee Lab}{}{}
+\cventry{2010-2011}{Undergraduate Researcher}{}{Bensmaia Somatosensory Research Lab, Chicago IL}{}{\bulletpt Analyzed neuronal somatosensory data with MATLAB; built precision equipment in the metal shop; trained primates}              % arguments 3 to 6 are optional
+%\cventry{2011}{Chicago Careers in Higher Education}{}{Member; CCIHE Travel Grant Recipient (to present at COSYNE conference); CCIHE Undergrad Research Symposium Speaker}{}{}
+
+\cventry{2009}{VIGRE Summer REU}{}{University of Chicago Mathematics Department}{}{\bulletpt Wrote a research paper on configuration spaces of planar linkages;  Attended Topology, Probability, Group Theory, Billiards, and Discrete Math 
+classes }
+\cventry{2008-2010}{Personal Assistant to Paul Sally}{}{University of Chicago Mathematics Department}{}{\bulletpt Helped the Director of Undergraduate Mathematics with many tasks related to research, administration, and teaching}              
+\cventry{2007-2008}{Gearup Classroom Support}{}{University of Chicago Neighborhood Schools Program}{}{\bulletpt Assisted 8th grade Chicago Public Schools classroom}  
+% Publications from a BibTeX file
+\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{publications}       % 'publications' is the name of a BibTeX file
+
+\
+
+\section{Invited and Selected Talks}
+\cventry{2018}{Computational Neuroscience Tutorial, MIT Brain and Cognitive Sciences Department}{}{\href{https://www.youtube.com/playlist?list=PLyGKBDfnk-iAU7N6dYVy7HhK2aLjLSPKM}{https://www.youtube.com/playlist?list=PLyGKBDfnk-iAU7N6dYVy7HhK2aLjLSPKM}}{}{}{}{}
+\cventry{2018}{COSYNE (Computational and Systems Neuroscience) conference}{\href{https://youtu.be/XyWtCtZ_m-8?list=PL9YzmV9joj3FNsAV2S_cKxY8Ik_-YlQfu}{http://www.cosyne.org/c/index.php?title=Cosyne\_18}}{}{}{}{}
+\cventry{2017}{Janelia J-Theory seminar}{}{}{}{}{}
+\cventry{2017}{Stanford Neuroscience Invited Graduate Student Talk Series}{}{}{}{}{}
+\cventry{2017}{MIT Brain and Cognitive Sciences Department Retreat}{}{}{}{}
+\cventry{2016 \& 2017}{Quantitative Methods Workshop, MIT Biology Department and Center for Minds Brains and Machines}{}{}{}{}
+\cventry{2016 \& 2017}{MIT Brain and Cognitive Sciences Department Interview Day Talk}{}{}{}{}
+\cventry{2015}{Integrative Neuronal Systems Conference, MIT Brain and Cognitive Sciences Department}{}{}{}{}
+\cventry{2014}{Center for Minds Brains and Machines Summer School at Woods Hole}{\href{http://cbmm.mit.edu/video/emily-mackevicius-learning-computational-neuroscience-perspective}{http://cbmm.mit.edu/video/emily-mackevicius-learning-computational-neuroscience-perspective}}{}{}{}
+
+\section{Fellowships and Awards}
+\cventry{2018}{COSYNE Presenters Travel Grant}{Selected to give a talk and awarded a travel grant based on the high reviewer ranking of my abstract}{}{}{}{}
+\cventry{2015-present}{Computational Neuroscience Tutorial Series, awarded department funding for filming and admin support}{\href{https://stellar.mit.edu/S/project/bcs-comp-tut/index.html}{https://stellar.mit.edu/S/project/bcs-comp-tut/index.html}}{}{}{}{}
+\cventry{2013-2016}{National Defense Science and Engineering Graduate Fellowship (NDSEG)}{Three year graduate fellowship from the Department of Defense covering tuition and stipend for three years}{}{}{}{}
+\cventry{2015}{Angus MacDonald Award for Excellence in Undergraduate Teaching}{Awarded by MIT Brain and Cognitive Sciences Deparment for my work TAing a new undergraduate course in Computational Neuroscience}{}{}{}{}
+\cventry{2015}{MIT Graduate Women of Excellence Award}{One of roughly 50 awardees of more than 200 nominees. Award is meant to ``honor graduate women who exemplify leadership and outstanding accomplishment''}{}{}{}{}
+\cventry{2012}{Scholarship for Methods in Computational Neuroscience course}{Marine Biology Lab}{Woods Hole, MA}{}{}{}{}
+\cventry{2011-2012}{Henry E. Singleton (1940) Presidential Fellowship}{MIT fellowship for first year graduate students}{}{}{}{}{}
+\cventry{2010}{Computational Neuroscience Summer Researcher}{NIH-sponsored summer research experience for undergraduates}{}{}{}{}{}{}
+\cventry{2009}{Math Summer Undergraduate Research Fellowship}{University of Chicago}{}{}{}{}{}{}
+\cventry{2007-2011}{University Scholarship}{merit scholarship for entering students}{University of Chicago}{}{}{}{}
+
+
+
+
+\section{Teaching and Mentorship}
+\cventry{2014-present}{Member, Education Committee}{}{MIT Brain and Cognitive Sciences Department}{}{\bulletpt Advise committee on graduate and undergraduate curriculum}{}
+
+\cventry{2013-2017}{Founder, Computational Neuroscience Tutorial Series}{}{MIT Brain and Cognitive Sciences and Center for Minds Brains and Machines}{}{\bulletpt Chose topics, invited speakers, created course website with problem sets, references, slides, and videos: \href{https://stellar.mit.edu/S/project/bcs-comp-tut/index.html}{https://stellar.mit.edu/S/project/bcs-comp-tut/index.html}}{}
+
+
+\cventry{2013-2017}{Teaching Assistant, Methods in Computational Neuroscience}{}{Woods Hole Marine Biology Laboratory}{}{\bulletpt Made tutorials and problem sets, answered student questions, proposed novel projects, and advised students on projects}{}
+
+\cventry{2016-2017}{Instructor, Quantitative Methods Workshop}{}{MIT Biology Department and Center for Minds Brains and Machines}{}{\bulletpt Designed and taught tutorials at intensive quantitative workshop for undergrads from diverse backgrounds}{}{}
+
+\cventry{2013-2017}{Mentor and PAL, MIT Summer Research Program}{}{MIT Brain and Cognitive Sciences and Center for Minds Brains and Machines}{}{\bulletpt Mentored summer student and served as informal PAL to several students in diversity research program}{}
+
+\cventry{2014-2015}{Teaching Assistant}{}{MIT Brain and Cognitive Sciences Department}{}{\bulletpt 9.40 (Introduction to Computational Neuroscience) TA: designed problem set questions, helped plan lectures and course curriculum, held office hours, answered student questions.}{}
+\cventry{2014}{Teaching Assistant, Brains, Minds and Machines Summer Course}{}{Woods Hole Marine Biology Laboratory}{}{\bulletpt Made MATLAB for neuroscience tutorial, gave neuroscience lecture, answered student questions, advised students on projects.}{}
+\cventry{2014}{Conference organizer}{}{Graduate Women at MIT (GWAMIT)}{}{\bulletpt Organized a mentorship event for the 2014 Spring Empowerment Conference, co-chair of the 2014 Fall Leadership Conference}{}
+\cventry{2011-2014}{Video Maker}{}{MIT+K12 Videos}{}{\bulletpt Made outreach videos on science topics for the MIT+K12 Videos project, and Khan Academy. Designated as a `high quality veteran video maker'.}{}
+\cventry{2012}{Teaching Assistant}{}{MIT Brain and Cognitive Sciences Department}{}{\bulletpt 8.261/9.29 (Introduction to Computational Neuroscience) TA: held office hours and review sessions, and graded assignments}{}
+\cventry{2011}{Teaching Assistant}{}{University of Chicago Biology Department}{}{\bulletpt BIOS 20244 (Biophysics and Chemical Biology) TA: advised and assessed student presentations}{}
+\cventry{2009-2010}{YSP Group Leader}{}{University of Chicago Mathematics Department}{}{\bulletpt Led a discussion group of gifted $5^{th} - 9^{th}$ graders covering topics related to the mathematics of encryption}  
+\cventry{2008-2010}{VIGRE Course Assistant}{}{University of Chicago Mathematics Department}{}{\bulletpt MATH 151,2,300 (Calculus) TA: held office hours, graded papers, assisted problem sessions}  
+\cventry{2009}{VIGRE REU}{}{University of Chicago Mathematics Department}{}{\bulletpt Led a discussion group of $11^{th}$ and $12^{th}$ graders in Knot Theory and Applied Probability}   
+\cventry{2007-2008}{Gearup Classroom Support}{}{University of Chicago Neighborhood Schools Program}{}{\bulletpt Assisted 8th grade Chicago Public Schools classroom}   
+%\cventry{1997-present}{Cellist}{}{Chamber music including: MIT Chamber Music Society, University of Chicago Chamber Music Program and Classical Improvisation Group, Apple Hill Center for Chamber Music Summer Festivals}{}{}
+%\cventry{2007-2011}{Viola da Gamba Player}{}{University of Chicago Early Music Ensemble}{}{}
+%\cventry{2007-2010}{Assistant Principal Cellist (2007-2008)}{}{University Symphony Orchestra}{}{}
+
+\section{Skills and hobbies}
+\cvcomputer{Computer}{MATLAB, Python, Slurm, LaTex, Mac OS X, Microsoft Office, CAD, Eagle}{Fabrication}{precision Lathe, precision milling machine, band saw, drill press, laser cutter, computer-controlled machining, electronics, etc. }
+\cvcomputer{Cello}{MIT Chamber Music Society and Gilbert and Sullivan Pit Orchestra, University of Chicago Symphony Orchestra, Early Music Ensemble, Classical Improvisation Group}{Other}{Pottery, hiking, slackline, climbing}
+
+\closesection{}                   % needed to renewcommands
+\renewcommand{\listitemsymbol}{-} % change the symbol for lists
+
+
+
+\section{References}
+References available upon request
+%\cventry{ 617.324.0173\\ \scriptsize{fee@mit.edu}}{Michale Fee}{Associate Professor}{}{}{Massachusetts Institute of Technology}{}{}{}
+%\cventry{ 617.324.3085\\ \scriptsize{esb@media.mit.edu}}{Ed Boyden}{Associate Professor}{}{}{Massachusetts Institute of Technology}{}{}{}
+%\cventry{773.834.5203\\ \scriptsize{sliman@uchicago.edu}}{Sliman Bensmaia}{Associate Professor}{}{}{University of Chicago}{}{}{}
+
+\end{document}
+
+
+%% end of file `template_en.tex'.
