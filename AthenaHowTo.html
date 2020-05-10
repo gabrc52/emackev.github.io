@@ -8,24 +8,11 @@
 <body>
 <p>In case your username is not elm, replace elm in the following code
 with your username.</p>
-<h2> Step 1: ssh into Athena </h2>
-<p>Open a terminal window, and type:</p>
-<pre>ssh elm@athena.dialup.mit.edu </pre>
-<p>Enter your password when prompted.</p>
-<h2> Step 2: find path to your www folder </h2>
-<p>In the terminal window where you sshed into athena, type:</p>
-<pre>cd www </pre>
-<pre>pwd </pre>
-<p>Copy the filepath you see -- this is where you'll put the contents
-of the website.  For me it was: </p>
-<pre>/afs/athena.mit.edu/user/e/l/elm/www</pre>
-<h2> Step 3: copy content to the your www folder </h2>
-<p>Navigate out of ssh by opening another terminal or typing:</p>
-<pre>exit</pre>
+<h2> Step 1: copy content to your www folder </h2>
 <p>Let's say the file you want to add to www is called index.html, and
 is in your Downloads folder, and your username is elm.  Then type:</p>
-<pre>scp ~/Downloads/index.html elm@athena.dialup.mit.edu:/afs/athena.mit.edu/user/e/l/elm/www/index.html</pre>
-<h2> Step 4: check that it worked </h2>
+<pre>scp ~/Downloads/index.html elm@athena.dialup.mit.edu:~/www/index.html</pre>
+<h2> Step 2: check that it worked </h2>
 You can access your website (assuming username is elm) at: <a href =  http://web.mit.edu/elm/www/> http://web.mit.edu/elm/www/</a>
-</Body>
+</body>
 </html>
